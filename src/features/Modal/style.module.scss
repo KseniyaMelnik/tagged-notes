@@ -1,0 +1,19 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  min-height: 200px;
+  max-height: 600px;
+  width: 400px;
+  background-color: gray;
+  border-radius: 12px;
+  padding: 20px;
+}
