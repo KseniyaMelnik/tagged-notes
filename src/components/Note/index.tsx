@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 import { useAppDispatch } from '../../hooks/redux';
 import { deleteNote, NoteType } from '../../store/reducers/NotesSlice';
+import { Tag } from '../Tag';
 
 import s from './style.module.scss';
 
@@ -29,13 +30,10 @@ export const Note: FC<NoteProps> = ({ id, text, tags, setNoteId, setModalActive 
       <button type="button" onClick={changeText}>
         ✎
       </button>
-      <div>
-        {' '}
-        {tags.map(el => (
-          <span key={el}>{el}</span>
-        ))}
-      </div>
-      {text}
+      {tags.map(t => (
+        <Tag tag={t} key={t} />
+      ))}
+      <div>{text}</div>
     </div>
   );
 };
