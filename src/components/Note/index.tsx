@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { useAppDispatch } from '../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { deleteNote, NoteType } from '../../store/reducers/NotesSlice';
 import { Tag } from '../Tag';
 
@@ -11,8 +11,9 @@ type NoteProps = NoteType & {
   setModalActive: (active: boolean) => void;
 };
 
-export const Note: FC<NoteProps> = ({ id, text, tags, setNoteId, setModalActive }) => {
+export const Note: FC<NoteProps> = ({ id, text, setNoteId, setModalActive }) => {
   const dispatch = useAppDispatch();
+  const tags = useAppSelector(state => state.tagsReducer.tags[id]);
   const removeNote: () => void = () => {
     dispatch(deleteNote(id));
   };
@@ -31,7 +32,7 @@ export const Note: FC<NoteProps> = ({ id, text, tags, setNoteId, setModalActive 
         ✎
       </button>
       {tags.map(t => (
-        <Tag tag={t} key={t} />
+        <Tag tag={t} key={t} noteId={id} />
       ))}
       <div>{text}</div>
     </div>

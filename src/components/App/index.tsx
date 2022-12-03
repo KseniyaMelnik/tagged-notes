@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
 
 import { Modal } from '../../features/Modal';
+import { TagsList } from '../../features/TagsList';
 import { useAppSelector } from '../../hooks/redux';
 import { AddNote } from '../AddNote';
 import { Note } from '../Note';
@@ -16,12 +17,12 @@ const App: FC = () => {
   return (
     <div className="App">
       <AddNote />
+      <TagsList />
       <div className={s.notesBlock}>
         {notes.map(n => (
           <Note
             id={n.id}
             text={n.text}
-            tags={n.tags}
             key={n.id}
             setNoteId={setNoteId}
             setModalActive={setModalActive}

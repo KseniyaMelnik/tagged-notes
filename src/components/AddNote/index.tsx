@@ -17,10 +17,8 @@ export const AddNote: FC = () => {
   };
   const saveNote: () => void = () => {
     const id = v4();
-    const wordsArr = text.split(' ');
-    const tags = wordsArr.filter(el => el[0] === '#');
 
-    dispatch(addNewNote({ id, text, tags }));
+    dispatch(addNewNote({ id, text }));
     setText('');
   };
   const closeNote: () => void = () => {

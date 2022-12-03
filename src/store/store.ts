@@ -1,9 +1,11 @@
 import { combineReducers, configureStore, Store } from '@reduxjs/toolkit';
 
 import notesReducer from './reducers/NotesSlice';
+import tagsReducer from './reducers/TagsSlice';
 
 const rootReducer = combineReducers({
   notesReducer,
+  tagsReducer,
 });
 
 export const setupStore: () => Store = () => {

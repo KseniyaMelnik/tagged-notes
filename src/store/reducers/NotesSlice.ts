@@ -3,19 +3,16 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 export type NoteType = {
   id: string;
   text: string;
-  tags: string[];
 };
 const initialState: { notes: NoteType[] } = {
   notes: [
     {
       id: '1',
       text: 'Тесттесттесттсет',
-      tags: ['пример'],
     },
     {
       id: '2',
       text: 'Hi, it is testing note',
-      tags: ['note'],
     },
   ],
 };
